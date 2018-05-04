@@ -33,12 +33,14 @@ Generally ARMA and ARIMA are the standard way to predict stationary time series.
  Next we tried to predict the data using prophet. Prophet is a framework to predict time series built by Facebook Data Scientists. While tuning prophet, we were having trouble predicting the overall trend of the data into November. This error could have taken place because we did not tune our model properly. We did not see that much improvement on our overall Score
 
 #### Nested LSTMs
+Library used: https://github.com/hannw/nlstm
 
 Afterwards, we tried to predict the series using nested LSTMs. For time series, LSTMs are are more prefered than Neural Networks because they do not have the vanishing gradient issue. This model gave us our best RMSE score of 1.02. We saw that using this type of model gave us a better prediction that traditional time series.
 
 #### Independent Recurrent Neural Networks
+Library used: https://github.com/batzner/indrnn
 
-The final model we tried to fit is something called a Independent Recurrent Neural Network. It is another way to try to solve the vanishing gradient issue, but the first paper that we saw on it was written in March 2018. Using this model we got a RMSE score of 1.03 meaning that it had similar performance to the Nested LSTM.
+The final model we tried to fit is something called a Independent Recurrent Neural Network. It is another way to try to solve the vanishing gradient issue, but the first paper that we saw on it was written in [March 2018](https://arxiv.org/abs/1803.04831). Using this model we got a RMSE score of 1.03 meaning that it had similar performance to the Nested LSTM.
 
 Conclusion
 -----------------
