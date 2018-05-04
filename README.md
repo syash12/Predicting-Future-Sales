@@ -46,6 +46,8 @@ Library used: https://github.com/batzner/indrnn
 
 The final model we tried to fit is something called a Independent Recurrent Neural Network. It is another way to try to solve the vanishing gradient issue, but the first paper that we saw on it was written in [March 2018](https://arxiv.org/abs/1803.04831). Using this model we got a RMSE score of 1.03 meaning that it had similar performance to the Nested LSTM. Using IRNN, allows the user to devlop deeper and deeper neural networks. The network that we designed was only 3 layers deep, but we can use IndRNN to get networks that could possibly be 20 layers deep.
 ![Independently Recurrent Neural Network Epoch Error](https://i.imgur.com/2dymYqF.png)
+
+
 Conclusion
 -----------------
 Overall, the models we used to predict our data gave us a RMSE of 1.02. Stacking the working models did not work too well for predicting our data. But we were able to explore many different ways to predict time series.
