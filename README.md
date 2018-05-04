@@ -26,7 +26,7 @@ Training Models
 -----------------
 We tried out a variety of different models to predict this dataset ranging from ARMA and ARIMA, Prophet, Nested LSTMs, XGBoost, and Independently Recurrent Neural Networks. We found that Nested LSTMs and IndRNN worked the best for predicting the dataset. However, we were having trouble combining and stacking models to form a better model
 
-
+#### ARMA & ARIMA
 Generally ARMA and ARIMA are the standard way to predict stationary time series. ARIMA (Autoregressive Integrated Moving Average) is generally used to predict stationary time series. Using ARIMA, we were not really able to predict the sales of the data well. Our RMSE score was around 2.0. Therefore we decided to explore other models to fit our data. To get the coefficients for ARIMA, we attempted to use a library called Pyramid, which is supposed to replicate the fit function that R contains. It was difficult to fit a good model using ARIMA to our data because python does not have as good support for these models as R.
 It is possible that the ARIMA gave us such a bad score was because each product only had ~25 or so data points available.
 
@@ -40,12 +40,12 @@ Library used: https://github.com/hannw/nlstm
 Afterwards, we tried to predict the series using nested LSTMs. For time series, LSTMs are are more preferred than Neural Networks because they do not have the vanishing gradient issue. The difference between using a recurrent neural network with LSTMs is that the LSTM replaces a neuron in the RNN with a LSTM unit. LSTM units consist of an information cell, an input gate, an output gate and a forget gate. The cell is responsible for "remembering" values over arbitrary time intervals. The gates can be thought of as regulators, controlling the flow of information into the information cell.  Additionally, the RMSE seemed to converge after only 10 epochs which seems fewer epochs than necessary. After we got this working model, we tried to get other similar models to write.
 
 This model gave us our best RMSE score of 1.02. We saw that using this type of model gave us a better prediction than traditional time series.
-
+![Nested LSTM Epoch Error](https://imgur.com/a/4ZlFQrO)
 #### Independent Recurrent Neural Networks
 Library used: https://github.com/batzner/indrnn
 
 The final model we tried to fit is something called a Independent Recurrent Neural Network. It is another way to try to solve the vanishing gradient issue, but the first paper that we saw on it was written in [March 2018](https://arxiv.org/abs/1803.04831). Using this model we got a RMSE score of 1.03 meaning that it had similar performance to the Nested LSTM. Using IRNN, allows the user to devlop deeper and deeper neural networks. The network that we designed was only 3 layers deep, but we can use IndRNN to get networks that could possibly be 20 layers deep.
-
+![Independently Recurrent Neural Network Epoch Error](https://imgur.com/a/X2WdYc6)
 Conclusion
 -----------------
 Overall, the models we used to predict our data gave us a RMSE of 1.02. Stacking the working models did not work too well for predicting our data. But we were able to explore many different ways to predict time series.
