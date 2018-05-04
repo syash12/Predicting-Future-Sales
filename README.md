@@ -36,7 +36,7 @@ Generally ARMA and ARIMA are the standard way to predict stationary time series.
 #### Nested LSTMs
 Library used: https://github.com/hannw/nlstm
 
-Afterwards, we tried to predict the series using nested LSTMs. For time series, LSTMs are are more prefered than Neural Networks because they do not have the vanishing gradient issue. The difference between using a recurrent neural network with LSTMs is that the LSTM replaces a neuron in the RNN with a LSTM unit. LSTM units consist of an information cell, an input gate, an output gate and a forget gate. The cell is responsible for "remembering" values over arbitrary time intervals. The gates can be thought of as regulators, controlling the flow of information into the information cell.
+Afterwards, we tried to predict the series using nested LSTMs. For time series, LSTMs are are more prefered than Neural Networks because they do not have the vanishing gradient issue. The difference between using a recurrent neural network with LSTMs is that the LSTM replaces a neuron in the RNN with a LSTM unit. LSTM units consist of an information cell, an input gate, an output gate and a forget gate. The cell is responsible for "remembering" values over arbitrary time intervals. The gates can be thought of as regulators, controlling the flow of information into the information cell. Nested LSTMs replace the Information cell with another LSTM, successfully adding more depth to the neural network.
 
 This model gave us our best RMSE score of 1.02. We saw that using this type of model gave us a better prediction than traditional time series.Additionally, the RMSE seemed to converge after only 10 epochs which seems fewer epochs than necessary. After we got this working model, we tried to get other similar models to write.
 
