@@ -22,11 +22,11 @@ To test the stationarity of our data, we used the Dickey fuller test. This test 
  
 Training Models
 -----------------
-We tried out a variety of different models to predict this dataset ranging from ARMA and ARIMA, Prophet, Nested LSTMs, XGBoost, and Independently Recurrent Neural Networks
+We tried out a variety of different models to predict this dataset ranging from ARMA and ARIMA, Prophet, Nested LSTMs, XGBoost, and Independently Recurrent Neural Networks. We found that Nested LSTMs and IndRNN worked the best for predicting the dataset. However, we were having trouble combining and stacking models to form a better model
 
 #### ARMA and ARIMA
 
-Generally ARMA and ARIMA are the standard way to predict stationary time series. ARIMA (Autoregressive Integrated Moving Average) is generally used to predict stationary time series. Using ARIMA, we were not really able to predict the sales of the data well. Our RMSE score was around 2.0. Therefore we decided to explore other models to fit our data
+Generally ARMA and ARIMA are the standard way to predict stationary time series. ARIMA (Autoregressive Integrated Moving Average) is generally used to predict stationary time series. Using ARIMA, we were not really able to predict the sales of the data well. Our RMSE score was around 2.0. Therefore we decided to explore other models to fit our data. To get the coefficients for ARIMA, we attemped to use a library called Pyramid, which is supposed to replicate the fit function that R contains. It was difficult to fit a good model using ARIMA to our data becasue python does not have as good support for these models as R.
 
 #### Prophet
 
@@ -35,12 +35,12 @@ Generally ARMA and ARIMA are the standard way to predict stationary time series.
 #### Nested LSTMs
 Library used: https://github.com/hannw/nlstm
 
-Afterwards, we tried to predict the series using nested LSTMs. For time series, LSTMs are are more prefered than Neural Networks because they do not have the vanishing gradient issue. This model gave us our best RMSE score of 1.02. We saw that using this type of model gave us a better prediction that traditional time series.
+Afterwards, we tried to predict the series using nested LSTMs. For time series, LSTMs are are more prefered than Neural Networks because they do not have the vanishing gradient issue. This model gave us our best RMSE score of 1.02. We saw that using this type of model gave us a better prediction that traditional time series. Additionally, the RMSE seemed to converge after only 10 epochs which seems fewer epochs than necessary. After we got this working model, we tried to get other similar models to write.
 
 #### Independent Recurrent Neural Networks
 Library used: https://github.com/batzner/indrnn
 
-The final model we tried to fit is something called a Independent Recurrent Neural Network. It is another way to try to solve the vanishing gradient issue, but the first paper that we saw on it was written in [March 2018](https://arxiv.org/abs/1803.04831). Using this model we got a RMSE score of 1.03 meaning that it had similar performance to the Nested LSTM.
+The final model we tried to fit is something called a Independent Recurrent Neural Network. It is another way to try to solve the vanishing gradient issue, but the first paper that we saw on it was written in [March 2018](https://arxiv.org/abs/1803.04831). Using this model we got a RMSE score of 1.03 meaning that it had similar performance to the Nested LSTM. Using IRNN, allows the user to devlop deeper and deeper neural networks. The network that we designed was only 3 layers deep, but we can use IndRNN to get networks that could possibly be 20 layers deep. 
 
 Conclusion
 -----------------
