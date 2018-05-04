@@ -32,6 +32,8 @@ We tried out a variety of different models to predict this dataset ranging from 
  
 Generally ARMA and ARIMA are the standard way to predict stationary time series. ARIMA (Autoregressive Integrated Moving Average) is generally used to predict stationary time series. As a time series technique, ARIMA assumes there is a continuity in the trend between the past and future. Using ARIMA, we were not really able to predict the sales of the data well. Our RMSE score was around 2.0. 
 
+It is possible that the ARIMA gave us such a bad score was because each product only had ~25 or so data points available.
+
 #### Prophet
 
  Next we tried to predict the data using prophet. Prophet is a framework to predict time series built by Facebook Data Scientists. While tuning prophet, we were having trouble predicting the overall trend of the data into November. This error could have taken place because we did not tune our model properly. We did not see that much improvement on our overall Score
@@ -39,7 +41,9 @@ Generally ARMA and ARIMA are the standard way to predict stationary time series.
 #### Nested LSTMs
 Library used: https://github.com/hannw/nlstm
 
-Afterwards, we tried to predict the series using nested LSTMs. For time series, LSTMs are are more prefered than Neural Networks because they do not have the vanishing gradient issue. This model gave us our best RMSE score of 1.02. We saw that using this type of model gave us a better prediction than traditional time series.
+Afterwards, we tried to predict the series using nested LSTMs. For time series, LSTMs are are more prefered than Neural Networks because they do not have the vanishing gradient issue. The difference between using a recurrent neural network with LSTMs is that the LSTM replaces a neuron in the RNN with a LSTM unit. LSTM units consist of an information cell, an input gate, an output gate and a forget gate. The cell is responsible for "remembering" values over arbitrary time intervals. The gates can be thought of as regulators, controlling the flow of information into the information cell.
+
+This model gave us our best RMSE score of 1.02. We saw that using this type of model gave us a better prediction than traditional time series.
 
 #### Independent Recurrent Neural Networks
 Library used: https://github.com/batzner/indrnn
