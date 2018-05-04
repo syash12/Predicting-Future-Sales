@@ -10,11 +10,11 @@ First, we are going to take a deeper look at the data. This dataset contains the
 
 The above block diagram visualizes numbers of items sold per category.
 
-Generally for for predicting time data, we need the data to be stationary. Meaning that the mean, variance, and covariance should not be a function of time. For our data. There is an overall trend that we need to remove for our data to be stationary.
+Generally for for predicting time data, we need the data to be stationary. Meaning that the mean, variance, and covariance should not be a function of time for our data. There is an overall trend that we need to remove for our data to be stationary.
 
 ![data breakdown](https://imgur.com/9DNOqwh.png)
 
-This image shows the breakdown of our data. After we remove a the overall trend of the data. The data becomes stationary and we are able to predict the data with our models
+This image shows the breakdown of our data. After we remove the overall trend of the data. The data becomes stationary and we are able to predict the data with our models
 
 To test the stationarity of our data, we used the Dickey fuller test. This test will show us if our data is stationary after we removed the overall trend. After the test, the p value was 0.01 meaning that we can assume that our data is stationary and use time series prediction modes.
 
@@ -22,11 +22,12 @@ To test the stationarity of our data, we used the Dickey fuller test. This test 
  
 Training Models
 -----------------
-We tried out a variety of different models to predict this dataset ranging from ARMA and ARIMA, Prophet, Nested LSTMs, XGBoost, and Independently Recurrent Neural Networks
+We tried out a variety of different models to predict this dataset ranging from ARMA and ARIMA, Prophet, Nested LSTMs, XGBoost, and Independently Recurrent Neural Networks.
 
-#### ARMA and ARIMA
 
-Generally ARMA and ARIMA are the standard way to predict stationary time series. ARIMA (Autoregressive Integrated Moving Average) is generally used to predict stationary time series. Using ARIMA, we were not really able to predict the sales of the data well. Our RMSE score was around 2.0. Therefore we decided to explore other models to fit our data
+#### ARIMA
+ 
+Generally ARMA and ARIMA are the standard way to predict stationary time series. ARIMA (Autoregressive Integrated Moving Average) is generally used to predict stationary time series. As a time series technique, ARIMA assumes there is a continuity in the trend between the past and future. Using ARIMA, we were not really able to predict the sales of the data well. Our RMSE score was around 2.0. 
 
 #### Prophet
 
@@ -35,7 +36,7 @@ Generally ARMA and ARIMA are the standard way to predict stationary time series.
 #### Nested LSTMs
 Library used: https://github.com/hannw/nlstm
 
-Afterwards, we tried to predict the series using nested LSTMs. For time series, LSTMs are are more prefered than Neural Networks because they do not have the vanishing gradient issue. This model gave us our best RMSE score of 1.02. We saw that using this type of model gave us a better prediction that traditional time series.
+Afterwards, we tried to predict the series using nested LSTMs. For time series, LSTMs are are more prefered than Neural Networks because they do not have the vanishing gradient issue. This model gave us our best RMSE score of 1.02. We saw that using this type of model gave us a better prediction than traditional time series.
 
 #### Independent Recurrent Neural Networks
 Library used: https://github.com/batzner/indrnn
@@ -44,4 +45,4 @@ The final model we tried to fit is something called a Independent Recurrent Neur
 
 Conclusion
 -----------------
-Overall, our the models we used to predict our data gave us a RMSE of 1.02. Stacking the working models did not work too well for predicting our data. But we were able to explore many different ways to predict time series. We are disappointed that we could not try out other models like Hidden Markov Models, but we will try to explore more time series models in the future.
+Overall, the models we used to predict our data gave us a RMSE of 1.02. Stacking the working models did not work too well for predicting our data. But we were able to explore many different ways to predict time series. 
