@@ -2,7 +2,7 @@ Team 7: Vamsi Ghorakavi, Matt Tawil, Yash Shahi, Sungho Lim
 
 # Predicting Future Sales
 
-For our final Data Science Project, we undertook the opportunity to compete in [this kaggle competition](https://www.google.com/url?q=https://www.kaggle.com/c/competitive-data-science-predict-future-sales&sa=D&ust=1525461654613000&usg=AFQjCNFRtos567F9ntNdD1uYcjDDOlTODQ). This blog post will explore the data, and look at the various methods that we used to try to predict the data. As of writing this blog post, we are currently ranked 71st out of 412 teams with a RMSE score of 1.02364.
+We undertook the opportunity to compete in [this kaggle competition](https://www.google.com/url?q=https://www.kaggle.com/c/competitive-data-science-predict-future-sales&sa=D&ust=1525461654613000&usg=AFQjCNFRtos567F9ntNdD1uYcjDDOlTODQ). This blog post will explore the data, and look at the various methods that we used to try to predict the data. As of writing this blog post, we are currently ranked 71st out of 412 teams with a RMSE score of 1.02364.
 
 Data Exploration
 -----------------
